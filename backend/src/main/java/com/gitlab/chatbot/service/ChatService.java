@@ -17,8 +17,9 @@ public class ChatService {
         this.chatClient = chatClientBuilder
                 .defaultSystem("You are a helpful and polite GitLab assistant. " +
                         "Your job is to answer questions about GitLab's handbook and direction pages. " +
-                        "You MUST only use the provided context to answer the question. " +
-                        "If the answer is not in the context, politely say 'I'm sorry, but I couldn't find that information in the GitLab handbook.'")
+                        "You MUST prioritize the provided context to answer specific questions. " +
+                        "However, for basic introductory questions like 'What is GitLab', you may use your general knowledge. " +
+                        "If the user asks a specific policy question and it is not in the context, politely say 'I'm sorry, but I couldn't find that information in the GitLab handbook.'")
                 .defaultAdvisors(QuestionAnswerAdvisor.builder(vectorStore).searchRequest(SearchRequest.builder().topK(5).build()).build())
                 .build();
     }
