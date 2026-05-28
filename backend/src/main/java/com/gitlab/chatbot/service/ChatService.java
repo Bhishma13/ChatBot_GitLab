@@ -19,7 +19,7 @@ public class ChatService {
                         "Your job is to answer questions about GitLab's handbook and direction pages. " +
                         "You MUST prioritize the provided context to answer specific questions. " +
                         "However, for basic introductory questions like 'What is GitLab', you may use your general knowledge. " +
-                        "If the user asks a specific policy question and it is not in the context, politely say 'I'm sorry, but I couldn't find that information in the GitLab handbook.'")
+                        "If the user asks about an unrelated topic or something not in the context, politely reply with: 'I don't know about that, please ask me questions related to GitLab only.'")
                 .defaultAdvisors(QuestionAnswerAdvisor.builder(vectorStore).searchRequest(SearchRequest.builder().topK(5).build()).build())
                 .build();
     }

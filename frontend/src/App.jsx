@@ -5,7 +5,7 @@ import './index.css';
 
 function App() {
   const [messages, setMessages] = useState([
-    { role: 'bot', content: "Hello! I'm your GitLab AI assistant. Ask me anything about the GitLab Handbook or Direction pages!" }
+    { role: 'bot', content: "Hello! I'm your GitLab AI assistant. Ask me anything about the GitLab." }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -53,7 +53,7 @@ function App() {
   return (
     <div className="chat-container">
       <div className="chat-header">
-        <h1>GitLab GenAI</h1>
+        <h1>GitLab Chatbot</h1>
       </div>
       
       <div className="chat-messages">
