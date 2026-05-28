@@ -9,6 +9,7 @@ function App() {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [chatId] = useState(() => Math.random().toString(36).substring(2, 15));
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -29,7 +30,7 @@ function App() {
 
     try {
       const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
-      const response = await axios.post(`${backendUrl}/api/chat`, { message: userMessage });
+      const response = await axios.post(`${backendUrl}/api/chat`, { message: userMessage, chatId: chatId });
       
       setMessages(prev => [...prev, { role: 'bot', content: response.data.response }]);
     } catch (error) {

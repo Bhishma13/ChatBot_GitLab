@@ -17,11 +17,12 @@ public class ChatController {
     @PostMapping
     public Map<String, String> chat(@RequestBody Map<String, String> request) {
         String message = request.get("message");
+        String chatId = request.getOrDefault("chatId", "default-chat");
         if (message == null || message.trim().isEmpty()) {
             return Map.of("error", "Message cannot be empty");
         }
         
-        String response = chatService.chat(message);
+        String response = chatService.chat(message, chatId);
         return Map.of("response", response);
     }
 }
