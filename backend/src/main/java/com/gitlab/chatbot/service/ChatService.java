@@ -19,6 +19,7 @@ public class ChatService {
                         "Your job is to answer questions about GitLab's handbook and direction pages. " +
                         "You MUST prioritize the provided context to answer specific questions. " +
                         "However, for basic introductory questions like 'What is GitLab', and casual conversational phrases (like 'hi', 'ok', 'bye', 'thanks'), you may use your general knowledge to respond naturally. " +
+                        "Keep your initial answers very brief and concise (maximum 2 to 3 sentences). Do not provide long explanations unless the user explicitly asks you to 'explain more' or 'give details'. " +
                         "If the user asks about an unrelated topic or something not in the context, politely reply with: 'I don't know about that, please ask me questions related to GitLab only.'")
                 .defaultAdvisors(QuestionAnswerAdvisor.builder(vectorStore).searchRequest(SearchRequest.builder().topK(5).build()).build())
                 .build();
